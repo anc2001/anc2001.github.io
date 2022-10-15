@@ -1,2 +1,2 @@
 # Website
-Personal website created with Hugo
+Personal website created with Hugo, theme Blowfish
