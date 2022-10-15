@@ -5,18 +5,23 @@ isoCode = "en"
 weight = 1
 rtl = false
 
-title = "Blowfish"
-# logo = "img/logo.png"
-description = "My awesome website"
+title = "Adrian Chang"
+# logo = "/assets/img/profile.png"
+description = "Adrian Chang's Personal Website"
 # copyright = "Copy, _right?_ :thinking_face:"
 
 dateFormat = "2 January 2006"
 
 [author]
-  name = "Your name here"
-  image = "img/blowfish_logo.png"
-  headline = "I'm only human"
-  bio = "A little bit about you"
+  name = "Adrian Chang"
+  image = "img/profile.jpg"
+  headline = "CS @ Brown"
+  bio = "Undergraduate research assistant interested in Machine Learning and Computer Graphics"
+  links = [
+    {github = "https://github.com/anc2001"},
+    {linkedin = "https://www.linkedin.com/in/anc2001"},
+    {email = "mailto:adrian_chang@brown.edu"}
+  ]
   # links = [
   #   { email = "mailto:hello@your_domain.com" },
   #   { link = "https://link-to-some-website.com/" },

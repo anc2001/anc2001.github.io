@@ -3,6 +3,8 @@
 # https://nunocoracao.github.io/blowfish/docs/getting-started/
 
 baseURL = "https://anc2001.github.io"
+languageCode = "en"
+
 theme = "blowfish"
 defaultContentLanguage = "en"
 
