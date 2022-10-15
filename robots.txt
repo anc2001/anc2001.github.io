@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://anc2001.github.io/sitemap.xml
