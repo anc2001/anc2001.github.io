@@ -8,12 +8,11 @@ showReadingTime : false
 showWordCount : false
 showEdit: false
 ---
-
-## Overview
-Program builds matrix `L` based on equation 8 in the paper, applies constraints by deleting corresponding rows and columns of constrained vertices, and then constructs and solves a linear system of equations described in the paper with `Eigen::SimplicialLDLT`. 
-
-## Results
+## Demo Video
+{{< youtube rCRaXV7d-Ik >}}
 
 Shown are simple examples constraining mutliple different vertices and seeing that the mesh deform reasonably. 
 
-{{< youtube rCRaXV7d-Ik >}}
+## Description
+Program builds matrix `L` based on equation 8 in the paper, applies constraints by deleting corresponding rows and columns of constrained vertices, and then constructs and solves a linear system of equations described in the paper with `Eigen::SimplicialLDLT`. 
+

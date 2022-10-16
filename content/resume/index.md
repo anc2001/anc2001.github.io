@@ -33,4 +33,4 @@ showLikes: false
 | School | Degree | Location     | Date |
 | ---  |    ----   | --- |  ---- |
 | Brown University | Sc.B Computer Science | Providence, RI   | Expected 2023 |
-| Pacific Ridge Highschool | Highschool Degree | Carlsbad, CA  | 2019 |
+| Pacific Ridge Highschool | Highschool Degree | Carlsbad, CA | 2019     |

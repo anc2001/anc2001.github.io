@@ -9,6 +9,19 @@ showWordCount : false
 showEdit: false
 ---
 
+## Results
+{{< youtube wCsaSCDQsKA >}}
+
+Shown in order
+- PIC only
+- FLIP only
+- Mix of both
+- Water sources: spout
+- Water sources: fountain
+- Curl
+- Solid interaction with bunny :rabbit2:
+- A reinterpreted legendary scene :)
+
 ## Overview
 <a target="_blank" href="https://github.com/brynnchernosky/flip"> {{< icon "Github" >}}Github Link</a>
 
@@ -28,15 +41,3 @@ For each timestep loop
 
 At every time step the particle positions are saved. Triangle meshes are then reconstructed from the point cloud data by converting it to a Signed Distance Field and applying the Marching Cubes algorithm. We used Blender to render each frame. 
 
-## Results
-Shown in order
-- PIC only
-- FLIP only
-- Mix of both
-- Water sources: spout
-- Water sources: fountain
-- Curl
-- Solid interaction with bunny :rabbit2:
-- A reinterpreted legendary scene :)
-
-{{< youtube wCsaSCDQsKA >}}
