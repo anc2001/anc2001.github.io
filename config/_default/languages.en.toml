@@ -15,12 +15,12 @@ dateFormat = "2 January 2006"
 [author]
   name = "Adrian Chang"
   image = "img/profile.jpg"
-  headline = "CS @ Brown"
-  bio = "CS @ Brown"
+  headline = ""
+  bio = ""
   links = [
     {github = "https://github.com/anc2001"},
     {linkedin = "https://www.linkedin.com/in/anc2001"},
-    {email = "mailto:adrian_chang@brown.edu"}
+    {email = "mailto:anchang2001@gmail.com"}
   ]
   # links = [
   #   { email = "mailto:hello@your_domain.com" },

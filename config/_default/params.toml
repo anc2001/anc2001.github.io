@@ -25,7 +25,7 @@ enableCodeCopy = true
   layout = "profile" # valid options: page, profile, hero, card, custom
   #homepageImage = "IMAGE.jpg" # used in: hero, and card
   showRecent = true
-  showRecentItems = 5
+  showRecentItems = 10
   showMoreLink = false
   showMoreLinkDest = "/projects"
 
