@@ -27,13 +27,13 @@ author:
   pronouns         : "he/him" # example: "she/her"  
   bio              :
   location         : "Cambridge, MA"
-  employer         : "Independent"
+  employer         :
   uri              : # URL
   email            : "anchang2001@gmail.com" 
 
   # Academic websites
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : # URL
   impactstory      : # URL
   orcid            : # URL
   semantic         : # URL
@@ -50,7 +50,7 @@ author:
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  bluesky          : # Username
   facebook         : # Username
   flickr           : # Username
   foursquare       : # Username
