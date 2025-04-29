@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Adrain Chang"
+title                    : "Adrian Chang"
 title_separator          : "-"
 name                     : &name "Adrian Chang"
 description              : &description "personal description"
@@ -23,9 +23,9 @@ repository               : "anc2001/anc2001.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  name             :
   pronouns         : "he/him" # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
+  bio              :
   location         : "Cambridge, MA"
   employer         : "Independent"
   uri              : # URL
@@ -76,14 +76,14 @@ author:
   zhihu            : # Username
 
 # Publication Category - The following the list of publication categories and their headings
-publication_category:
-  books:
-    title: 'Books'
-  manuscripts:
-    title: 'Journal Articles'    
-  conferences:
-    title: 'Conference Papers'
-
+# publication_category:
+#   books:
+#     title: 'Books'
+#   manuscripts:
+#     title: 'Journal Articles'    
+#   conferences:
+#     title: 'Conference Papers'
+# 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
