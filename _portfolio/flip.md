@@ -1,8 +1,10 @@
 ---
 title: "Fluid Simulation with FLIP"
-excerpt: "<br/><iframe width='560' height='315' src='https://www.youtube.com/embed/wCsaSCDQsKA' </iframe>"
+excerpt: "Excerpt here, [![Watch the video](https://img.youtube.com/vi/wCsaSCDQsKA/default.jpg)](https://youtu.be/wCsaSCDQsKA)"
 collection: portfolio
 ---
+
+[![Watch the video](https://img.youtube.com/vi/wCsaSCDQsKA/default.jpg)](https://youtu.be/wCsaSCDQsKA)
 
 Built a fluid simulation referencing methods from [Fluid Simulation Using Implicit Particles](https://www.danenglesson.com/images/portfolio/FLIP/rapport.pdf) and [Fluid Flow for the Rest of Us: Tutorial of the Marker and Cell Method in Computer Graphics](https://cg.informatik.uni-freiburg.de/intern/seminar/gridFluids_fluid_flow_for_the_rest_of_us.pdf).
 
