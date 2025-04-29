@@ -23,7 +23,7 @@ repository               : "anc2001/anc2001.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             :
+  name             : "Adrian Chang"
   pronouns         : "he/him" # example: "she/her"  
   bio              :
   location         : "Cambridge, MA"
