@@ -3,7 +3,6 @@ title: "Learning Object Placement Programs for Indoor Scene Synthesis with Itera
 collection: publications
 category: manuscripts
 permalink: /publications/object_placement_programs.md
-excerpt: 'A system which addresses incomplete next object location distributions'
 date: 2025-3-06
 venue: 'arXiv'
 citation: Adrian Chang, Kai Wang, Yuanbo Li, Manolis Savva, Angel X. Chang, Daniel Ritchie. Learning Object Placement Programs for Indoor Scene Synthesis with Iterative Self Training, ArXiv 2025.

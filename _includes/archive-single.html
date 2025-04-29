@@ -63,7 +63,7 @@
     {% elsif post.citation and post.project_page and post.code %}
       <p>{{ post.citation }}, <a href="{{ post.project_page }}">Project Page</a>, <a href="{{ post.code}}">Code</a></p>
     {% elsif post.citation and post.project_page %}
-      <p>{{ post.citation }}, <a href="{{ post.project_page }}">Project Page</a>, </p>
+      <p>{{ post.citation }}, <a href="{{ post.project_page }}">Project Page</a></p>
     {% elsif post.citation and post.code %}
       <p>{{ post.citation }}, <a href="{{ post.code}}">Code</a></p>
     {% elsif post.citation %}
