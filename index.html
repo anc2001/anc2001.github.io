@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adrian Chang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Geist+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --text:    #1c1c1a;
+      --muted:   #888880;
+      --faint:   #c0bfb8;
+      --bg:      #ffffff;
+      --border:  #e8e7e2;
+      --left-w:  200px;
+      --right-w: 180px;
+      --serif:   'EB Garamond', Georgia, serif;
+      --mono:    'Geist Mono', 'Courier New', monospace;
+    }
+
+    html, body {
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    /* ── Three-column shell ── */
+    .shell {
+      display: grid;
+      grid-template-columns: var(--left-w) 1fr var(--right-w);
+      min-height: 100vh;
+    }
+
+    /* ── Left column ── */
+    .left {
+      padding: 3.5rem 2rem 3.5rem 2.5rem;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .site-name {
+      display: block;
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+      color: var(--text);
+      text-decoration: none;
+      line-height: 1.3;
+      margin-bottom: 2.5rem;
+      cursor: pointer;
+    }
+
+    .site-name:hover { color: var(--text); }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav li {
+      margin-bottom: 0.1rem;
+    }
+
+    nav a {
+      display: block;
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.1rem 0;
+      transition: color 0.12s;
+    }
+
+    nav a:hover  { color: var(--text); }
+    nav a.active { color: var(--text); }
+
+    /* ── Center column ── */
+    .center {
+      padding: 3.5rem 3rem 6rem 2rem;
+      border-left: 1px solid var(--border);
+      max-width: 640px;
+    }
+
+    /* ── Right column ── */
+    .right {
+      /* intentionally empty breathing room */
+    }
+
+    /* ── Sections ── */
+    section { display: none; }
+    section.active { display: block; }
+
+    /* ── About ── */
+    .photo-placeholder {
+      width: 250px;
+      background: var(--border);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    /* swap in a real image like:
+       <img src="photo.jpg" class="photo" alt="Your Name" />  */
+    .photo {
+      width: 250px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 2rem;
+    }
+
+    .bio {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text);
+    }
+
+    .bio p + p { margin-top: 0.9rem; }
+
+    .bio a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--faint);
+    }
+
+    .bio a:hover { text-decoration-color: var(--text); }
+
+    .about-links {
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .about-links a {
+      color: var(--faint);
+      text-decoration: none;
+      transition: color 0.12s;
+      display: flex;
+      align-items: center;
+    }
+
+    .about-links a:hover { color: var(--text); }
+
+    .about-links svg {
+      width: 18px;
+      height: 18px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── Publication list ── */
+    .pub-list { list-style: none; }
+
+    .pub-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pub-item:first-child { border-top: 1px solid var(--border); }
+
+    .pub-inner {
+      display: grid;
+      grid-template-columns: 52px 1fr auto;
+      gap: 0 1.5rem;
+      align-items: start;
+    }
+
+    .pub-year {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--faint);
+      padding-top: 0.2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .pub-title {
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0.2rem;
+    }
+
+    .pub-title a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.12s;
+    }
+
+    .pub-title a:hover { border-color: var(--text); }
+
+    .pub-venue {
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .pub-authors {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.03em;
+      color: var(--faint);
+      margin-bottom: 0.5rem;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .pub-links a {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      transition: color 0.12s, border-color 0.12s;
+    }
+
+    .pub-links a:hover {
+      color: var(--text);
+      border-color: var(--muted);
+    }
+
+    .pub-photo {
+      width: 150px;
+      object-fit: cover;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .pub-photo-placeholder {
+      width: 150px;
+      background: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--faint);
+      flex-shrink: 0;
+    }
+
+    /* ── News list ── */
+    .news-list { list-style: none; }
+
+    .news-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 0 1.5rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+    }
+
+    .news-item:first-child { border-top: 1px solid var(--border); }
+
+    .news-date {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      color: var(--faint);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .news-text {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .news-text a {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--faint);
+    }
+
+    .news-text a:hover { text-decoration-color: var(--text); }
+
+    /* ── Blog list ── */
+    .blog-list { list-style: none; }
+
+    .blog-item {
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .blog-item:first-child { border-top: 1px solid var(--border); }
+
+    .blog-date {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.06em;
+      color: var(--faint);
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .blog-title {
+      font-size: 1.05rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+
+    .blog-title a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.12s;
+    }
+
+    .blog-title a:hover { border-color: var(--text); }
+
+    .blog-excerpt {
+      font-size: 0.93rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="shell">
+
+  <!-- ── Left ── -->
+  <aside class="left">
+    <a class="site-name" data-section="about">Adrian Chang (he/him)</a>
+
+    <nav>
+      <ul>
+        <li><a href="#" data-section="about">About</a></li>
+        <li><a href="#" data-section="news">News</a></li>
+        <li><a href="#" data-section="publications">Publications</a></li>
+        <li><a href="#" data-section="writing">Writing</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ── Center ── -->
+  <main class="center">
+
+    <!-- About -->
+    <section id="about" class="active">
+      <img src="images/wedding.jpg" class="photo" alt="Adrian Chang" />
+      <!-- <div class="photo-placeholder">Photo</div> -->
+      <!-- Replace the above with your actual photo:
+           <img src="photo.jpg" class="photo" alt="Your Name" /> -->
+
+      <div class="bio">
+        <p>
+          Hello, I'm an incoming PhD student at <a href="https://www.sfu.ca/fas/computing.html">Simon Fraser University</a> advised by <a href="https://angelicalim.com">Angelica Lim</a> and <a href="https://xbpeng.github.io">Jason Peng</a>. I did my undergrad at <a href="https://www.brown.edu">Brown</a> where I worked with <a href="https://dritchie.github.io">Daniel Ritchie</a> in the <a href="https://visual.cs.brown.edu">Visual Computing Group</a>. I've also worked on 3D reconstruction at <a href="https://www.visionsystemsinc.com">Vision Systems</a> and interpretability at the <a href="https://baulab.info">Bau Lab</a>.
+        </p>
+        <p>
+          I work on modeling human motion. I'm particularly interested in the affective aspects of this problem. How do we design virtual characters and humanoid robots that move in a lifelike manner? Can we get them to exhibit behaviors which accurately reflect the emotional state of the surrounding environment and people in it?
+        </p>
+        <p style="margin-top:0.9rem;">
+          <a href="files/adrian_chang_resume.pdf" target="_blank" rel="noopener">CV ↗</a>
+        </p>
+      </div>
+
+      <div class="about-links">
+        <!-- Email -->
+        <a href="mailto:adrian_chang@alumni.brown.edu" aria-label="Email">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+        </a>
+        <!-- Google Scholar -->
+        <a href="https://scholar.google.com" target="_blank" rel="noopener" aria-label="Google Scholar">
+          <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17"/><path d="M5 13.18v4L12 21l7-3.82v-4"/></svg>
+        </a>
+        <!-- GitHub -->
+        <a href="https://github.com/anc2001" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <!-- Twitter / X
+        <a href="https://twitter.com/yourusername" target="_blank" rel="noopener" aria-label="Twitter">
+          <svg viewBox="0 0 24 24"><path d="M4 4l16 16M4 20L20 4"/></svg>
+        </a> -->
+      </div>
+    </section>
+    <section id="news">
+      <ul class="news-list">
+
+        <!-- <li class="news-item">
+          <span class="news-date">June 2026</span>
+          <p class="news-text">
+            Paper accepted to CVPR AI4CC.
+          </p>
+        </li> -->
+
+      </ul>
+    </section>
+
+    <section id="publications">
+      <ul class="pub-list">
+
+        <li class="pub-item">
+          <div class="pub-inner">
+            <span class="pub-year">2026</span>
+            <div>
+              <p class="pub-title"><a href="#">Learning to Place Objects with Programs and Iterative Self Training</a></p>
+              <p class="pub-venue">CVPR 2026 Workshop on AI for Content Creation</p>
+              <p class="pub-authors"><b>Adrian Chang</b>, Kai Wang, Yuanbo Li, Manolis Savva, Angel X. Chang, Daniel Ritchie</p>
+              <div class="pub-links">
+                <!-- <a href="#" target="_blank" rel="noopener">Website</a> -->
+                <a href="https://arxiv.org/abs/2503.04496" target="_blank" rel="noopener">PDF</a>
+                <!-- <a href="#" target="_blank" rel="noopener">Code</a> -->
+              </div>
+            </div>
+            <img src="teasers/scenegen_teaser.pdf" class="pub-photo" alt="Figure from paper" />
+            <!-- <div class="pub-photo-placeholder">Image</div> -->
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-inner">
+            <span class="pub-year">2025</span>
+            <div>
+              <p class="pub-title"><a href="#">Does FLUX Know What It's Writing?</a></p>
+              <p class="pub-venue">NeurIPS 2025 Workshop on Mechanistic Interpretability</p>
+              <p class="pub-authors"><b>Adrian Chang</b>, Sheridan Feucht, Byron C Wallace, David Bau</p>
+              <div class="pub-links">
+                <!-- <a href="#" target="_blank" rel="noopener">Website</a> -->
+                <a href="https://openreview.net/forum?id=bPV2HTSr57" target="_blank" rel="noopener">PDF</a>
+                <!-- <a href="#" target="_blank" rel="noopener">Code</a> -->
+              </div>
+            </div>
+            <img src="teasers/pixel_printing_teaser.png" class="pub-photo" alt="Figure from paper" />
+            <!-- Replace with: <img src="pub2.jpg" class="pub-photo" alt="Figure from paper" /> -->
+          </div>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- Writing / Blog -->
+    <section id="writing">
+      <ul class="blog-list">
+
+        <!-- <li class="blog-item">
+          <p class="blog-date">May 2025</p>
+          <p class="blog-title"><a href="#">The title of your latest essay or post</a></p>
+          <p class="blog-excerpt">A sentence or two drawing the reader in. What's the core idea or question this piece explores?</p>
+        </li> -->
+
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- ── Right (empty) ── -->
+  <div class="right"></div>
+
+</div>
+
+<script>
+  const navLinks = document.querySelectorAll('[data-section]');
+
+  function show(id) {
+    document.querySelectorAll('section').forEach(s =>
+      s.classList.toggle('active', s.id === id));
+    navLinks.forEach(a =>
+      a.classList.toggle('active', a.dataset.section === id));
+  }
+
+  navLinks.forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      show(a.dataset.section);
+    });
+  });
+
+  // set initial active state
+  show('about');
+</script>
+
+</body>
+</html>
